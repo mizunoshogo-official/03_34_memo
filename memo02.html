@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myMemoPad中級</title>
+    <link rel="stylesheet" href="sample.css">
+</head>
+
+<body>
+    <div class="titlebox">
+
+        <header>
+            <h1 class="titletext">MemoPad</h1>
+        </header>
+    </div>
+
+    <main>
+        <input type="text" id="input">
+        <textarea id="text_area"></textarea>
+        <ul>
+            <li id="save">Save</li>
+            <li id="clear">Clear</li>
+        </ul>
+    </main>
+
+    <footer>
+        <small>G's</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            //1.Save クリックイベント
+            $('#save').on('click', function () {
+                var title = $('#input').val();
+                var text = $('#text_area').val();
+                var obj = {
+                    "title": title,
+                    "text": text
+                };
+                var json = JSON.stringify(obj);
+                localStorage.setItem('memo02', json);
+            });
+
+            // const date = {
+            // title: $('#input').val(),
+            // text: $('text_area').val(),
+            // };
+            // const jsonDara = JSON.stringify(data);
+        })
+
+        //2.clear クリックイベント
+        $('#clear').on('click', function () {
+            localStorage.removeItem('memo02');
+            $('#input').val("");
+            $('text_orea').val("");
+        });
+
+
+
+
+             //3.ページ読み込み：保存データ取得表示
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
